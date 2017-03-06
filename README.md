@@ -2,7 +2,17 @@
 
 ## Status
 
-Please see https://github.com/fuzionnz/civicrm-configexport for updates
+Development of this extension is paused. If you're looking at doing something in this space, I'd be interested to discuss - hit me (Chris Burgess, @xurizaemon) up. Good places to do this are [CiviCRM's "dev" channel](https://chat.civicrm.org/civicrm/channels/dev), or anywhere you feel like.
+
+## What did we learn?
+
+* CiviCRM can reliably import and export entities to a config format. That works fine.
+* CiviCRM has some "dependency" issues which would need to be mapped in order to do this reliably. (eg: A contribution page may only be imported / exported reliably if it can be mapped to other entities, like memberships, related organisations, price sets ...)
+* Mapping these dependencies would be a time-consuming task.
+* Mapping other constraints (eg some entities must have unique names - I forget which, but I noted it somewhere) would also be required.
+* Handling situations where these expectations are not met might be complicated, and some of the logic to ensure these constraints are met lives in Civi's forms layer.
+* CiviCRM's `hook_civicrm_managed` will currently remove the managed entities. It would be nice to have a means to "disown" or "free" the managed entities so that removing this extension doesn't blow away a ton of the site's configuration - otherwise that could be really disastrous.
+* We learned that this could be a big task, for now.
 
 ## TODO
 
