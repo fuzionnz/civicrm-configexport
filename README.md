@@ -11,6 +11,7 @@ Development of this extension is paused. If you're looking at doing something in
 * Mapping these dependencies would be a time-consuming task.
 * Mapping other constraints (eg some entities must have unique names - I forget which, but I noted it somewhere) would also be required.
 * Handling situations where these expectations are not met might be complicated, and some of the logic to ensure these constraints are met lives in Civi's forms layer.
+* CiviCRM's `hook_civicrm_managed` will currently remove the managed entities. It would be nice to have a means to "disown" or "free" the managed entities so that removing this extension doesn't blow away a ton of the site's configuration - otherwise that could be really disastrous.
 * We learned that this could be a big task, for now.
 
 ## TODO
